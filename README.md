@@ -30,6 +30,17 @@ One neat trick is that you can also create custom one-off templates by adding th
 - `author-ali.hbs` - Custom template for `/author/ali/` archive
 
 
+## MJelks Deviations from the Norm
+
+1. `partials/contact-form.hbs`
+   - I have created a new partial that is using a bespoke javascript that talks to an express / node.js backend with a SendGrid API
+    - ![contact screeshot example](assets/images/contact-screenshot.png)
+   - To invoke / use this, simply tag any post with a **contact**
+      - (if you don't have the tag, just make it)
+2. I have created a spot to add the Cloudflare Sitekey needed for the Captcha/Spam protection.
+   - visit `/ghost/#/settings/design/edit`
+   - ![contact screeshot example](assets/images/turnstile-screenshot.png)
+
 # Development
 
 Casper styles are compiled using Gulp/PostCSS to polyfill future CSS spec. You'll need [Node](https://nodejs.org/), [Yarn](https://yarnpkg.com/) and [Gulp](https://gulpjs.com) installed globally. After that, from the theme's root directory:

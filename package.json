@@ -89,6 +89,11 @@
         },
         "card_assets": true,
         "custom": {
+            "turnstile_sitekey": {
+                "type": "text",
+                "default": "<input Cloudflare Site Key here>",
+                "description": "Cloudflare Sitekey used for the turnstile captcha in the various forms." 
+            },
             "navigation_layout": {
                 "type": "select",
                 "options": [
