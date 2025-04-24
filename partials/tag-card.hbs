@@ -1,0 +1,39 @@
+{{!-- This is a partial file used to generate a tag "card"
+which templates loop over to generate a list of tags. --}}
+
+<article class="post-card {{post_class}}">
+
+    {{#if feature_image}}
+    <a class="post-card-image-link" href="{{tag.url}}">
+        <img class="post-card-image"
+            srcset="{{img_url feature_image size="s"}} 300w,
+                    {{img_url feature_image size="m"}} 600w,
+                    {{img_url feature_image size="l"}} 1000w,
+                    {{img_url feature_image size="xl"}} 2000w"
+            sizes="(max-width: 1000px) 400px, 800px"
+            src="{{img_url feature_image size="m"}}"
+            alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{tag.name}}{{/if}}"
+            loading="lazy"
+        />
+    </a>
+    {{/if}}
+
+    <section>
+    <div class="post-card-content">
+        <a class="post-card-content-link" href="{{tag.url}}">
+            <header class="post-card-header">
+                {{!-- <div class="post-card-tags">
+                    <span class="post-card-primary-tag">{{tag.name}}</span>
+                </div> --}}
+                <h2 class="post-card-title">{{tag.name}}</h2>
+                 {{#if tag.description}}
+                 <div class="post-card-tags">
+                    <div class="post-card-primary-tag">{{tag.description}}</div>
+                </div>
+                {{/if}}
+            </header>
+        </a>
+    </div>
+    </section>
+
+</article>

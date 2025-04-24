@@ -41,6 +41,13 @@ One neat trick is that you can also create custom one-off templates by adding th
    - visit `/ghost/#/settings/design/edit`
    - ![contact screeshot example](assets/images/turnstile-screenshot.png)
 
+3. Custom updates to screen.css
+   - visit `/content/themes/casper-mgj`
+   - `sudo - node` 
+   - `yarn install`
+   - `yarn gulp dev`
+   - this is now 'watching' for changes in the screen.css file, once we hit save, it should update the built css assets
+
 # Development
 
 Casper styles are compiled using Gulp/PostCSS to polyfill future CSS spec. You'll need [Node](https://nodejs.org/), [Yarn](https://yarnpkg.com/) and [Gulp](https://gulpjs.com) installed globally. After that, from the theme's root directory:

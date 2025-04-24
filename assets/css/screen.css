@@ -2066,13 +2066,13 @@ iframe.instagram-media + script + :not([id]) {
     position: relative;
     margin: max(12vmin, 64px) 0 0 0;
     padding-top: 48px;
-    padding-bottom: 140px;
+    padding-bottom: 46px;
     color: #fff;
-    background: color-mod(var(--color-darkgrey) l(-5%));
+    background: #141414;
 }
 
 .page-template .site-footer {
-    margin-top: 0;
+    margin-top: 50px;
 }
 
 .site-footer .inner {
