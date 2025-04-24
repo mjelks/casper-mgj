@@ -39,12 +39,13 @@ into the {body} tag of the default.hbs template --}}
 
     <section class="gh-content gh-canvas">
         {{content}}
+        
+        {{#has tag="#contact"}}
+            {{> contact-form}}
+        {{/has}}
     </section>
 
-    {{#has tag="contact"}}
-        {{> contact-form}}
-    {{/has}}
-
+    
 </article>
 </main>
 
