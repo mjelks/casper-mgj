@@ -306,6 +306,42 @@ production stylesheet in assets/built/screen.css
     height: 100%;
 }
 
+/* MGJ previous / next items */
+.post-navigation {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    font-weight: 600;
+    font-family: var(--font-heading, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif);
+    margin-bottom: 2rem;
+}
+
+.post-nav-link {
+    display: flex;
+    align-items: center;
+    color: var(--color-heading, #15171A);
+    text-decoration: none;
+    font-size: 1.2rem;
+    line-height: 1.3;
+}
+
+.post-nav-link:hover {
+    color: var(--color-primary, #3eb0ef);
+}
+
+.post-nav-icon {
+    margin: 0 0.5rem;
+    font-size: 1.4rem;
+}
+
+.post-prev {
+    margin-right: auto;
+}
+
+.post-next {
+    margin-left: auto;
+} 
+
 /* Header styles
 /* ---------------------------------------------------------- */
 
@@ -3037,6 +3073,30 @@ html.dark-mode .footer-cta-title {
 .pswp--minimal--dark .pswp__top-bar {
     background: none;
 }
+
+.tags-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1.5rem;
+    padding: 2rem;
+  }
+  
+  .tag-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 1.2rem;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.2s ease;
+  }
+  
+  .tag-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+  }
+  
 
 /*
 

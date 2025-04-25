@@ -1,0 +1,24 @@
+{{!< default}}
+{{! template: Tags Page }}
+
+{{! template: Tag Highlights Page }}
+
+<main id="site-main" class="site-main outer">
+  
+  <div class="inner posts">
+    <h1 style="margin-top: 25px">Tags</h1>
+    <div class="post-feed">    
+      {{#get "tags" filter="slug:-[documentation, ghost-config, rails]" limit="all"}}
+        {{#foreach tags}}
+          {{#get "posts" filter="tag:{{slug}}" limit="1" order="published_at desc"}}
+            {{#foreach posts}}
+              {{> "tag-card" tag=../../this}} {{!-- This is important --}}
+            {{/foreach}}
+          {{/get}}
+        {{/foreach}}
+      {{/get}}
+
+
+    </div>
+  </div>
+</main>

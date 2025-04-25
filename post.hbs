@@ -13,11 +13,13 @@ into the {body} tag of the default.hbs template --}}
     <header class="article-header gh-canvas">
 
         <div class="article-tag post-card-tags">
-            {{#primary_tag}}
-                <span class="post-card-primary-tag">
-                    <a href="{{url}}">{{name}}</a>
+            {{#if tags}}
+                <span class="post-card-tags">
+                    {{#foreach tags limit="3"}}
+                    <a href="{{url}}">{{name}}</a>{{^if @last}} • {{/if}}
+                    {{/foreach}}
                 </span>
-            {{/primary_tag}}
+            {{/if}}
             {{#if featured}}
                 <span class="post-card-featured">{{> "icons/fire"}} Featured</span>
             {{/if}}
@@ -82,6 +84,25 @@ into the {body} tag of the default.hbs template --}}
 
     </header>
 
+    {{!-- Simple Post Navigation --}}
+    <section class="gh-canvas">
+        <div class="post-navigation kg-width-wide">
+            {{#prev_post}}
+                <a href="{{url}}" class="post-nav-link post-prev">
+                    <span class="post-nav-icon">←</span>
+                    <span class="post-nav-text">Previous Post</span>
+                </a>
+            {{/prev_post}}
+            
+            {{#next_post}}
+                <a href="{{url}}" class="post-nav-link post-next">
+                    <span class="post-nav-text">Next Post</span>
+                    <span class="post-nav-icon">→</span>
+                </a>
+            {{/next_post}}
+        </div>
+    </section>
+
     <section class="gh-content gh-canvas">
         {{content}}
     </section>
@@ -92,7 +113,7 @@ into the {body} tag of the default.hbs template --}}
         </section>
     {{/if}}
 
-    {{#has tag="#contact"}}
+    {{#has tag="contact"}}
         {{> contact-form}}
     {{/has}}
 

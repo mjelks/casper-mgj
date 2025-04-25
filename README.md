@@ -43,9 +43,13 @@ One neat trick is that you can also create custom one-off templates by adding th
 
 3. Custom updates to screen.css
    - visit `/content/themes/casper-mgj`
-   - `sudo - node` 
+   - `su - node` 
    - `yarn install`
-   - `yarn gulp dev`
+   - `yarn gulp`
+     - if there's a problem with `yarn gulp` command
+     - `yarn remove gulp-zip`
+     - `yarn add gulp-zip@5.1.0`        
+
    - this is now 'watching' for changes in the screen.css file, once we hit save, it should update the built css assets
 
 # Development
