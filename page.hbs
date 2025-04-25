@@ -39,7 +39,7 @@ into the {body} tag of the default.hbs template --}}
 
     <section class="gh-content gh-canvas">
         {{content}}
-
+        {{!-- remember to create the tag `#contact` -- an internal tag -- for this to work --}}
         {{#has tag="#contact"}}
             {{> contact-form}}
         {{/has}}

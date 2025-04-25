@@ -112,8 +112,8 @@ into the {body} tag of the default.hbs template --}}
             {{comments}}
         </section>
     {{/if}}
-
-    {{#has tag="contact"}}
+    {{!-- remember to create the tag `#contact` -- an internal tag -- for this to work --}}
+    {{#has tag="#contact"}}
         {{> contact-form}}
     {{/has}}
 
