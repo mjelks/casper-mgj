@@ -1,0 +1,76 @@
+<style>
+    .copy-button {
+    margin: 1rem 0;
+    padding: 0.5em 1em;
+    background: #000;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    }
+    .copy-button:hover {
+    background: #333;
+    }
+</style>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const copyButton = document.getElementById('copyPostContent');
+
+        copyButton?.addEventListener('click', async () => {
+        const titleEl = document.querySelector('h1.article-title');
+        const excerptEl = document.querySelector('.article-excerpt');
+        const contentEl = document.querySelector('section.gh-content');
+
+        if (!titleEl || !contentEl) {
+            alert("Couldn't find post content.");
+            return;
+        }
+
+        // Clone the content so we don't mutate the DOM
+        const clone = contentEl.cloneNode(true);
+
+        // Find all gallery cards and replace them with their <img> tags
+        const galleries = clone.querySelectorAll('figure.kg-gallery-card');
+        galleries.forEach(gallery => {
+            const images = gallery.querySelectorAll('img');
+
+            const imageHtml = Array.from(images).map(img => {
+            return `<figure>${img.outerHTML}</figure>`;
+            }).join('\n');
+
+            const replacement = document.createElement('div');
+            replacement.innerHTML = imageHtml;
+
+            gallery.replaceWith(replacement);
+        });
+
+
+
+        // Final HTML output
+        const title = `<h1>${titleEl.innerText.trim()}</h1>`;
+        const excerpt = excerptEl?.innerText?.trim() ?? '';
+        const bodyHtml = clone.innerHTML.trim();
+        const fullHtml = `${title}\n\n${excerpt}\n\n${bodyHtml}`;
+
+        // Copy as HTML (and fallback plain text)
+        const blobHtml = new Blob([fullHtml], { type: "text/html" });
+        const blobText = new Blob([titleEl.innerText.trim() + '\n\n' + excerpt + '\n\n' + clone.innerText.trim()], { type: "text/plain" });
+
+        try {
+            await navigator.clipboard.write([
+            new ClipboardItem({
+                "text/html": blobHtml,
+                "text/plain": blobText
+            })
+            ]);
+            copyButton.innerText = 'Copied!';
+            setTimeout(() => (copyButton.innerText = 'Copy Article'), 2000);
+        } catch (err) {
+            console.error('Copy failed:', err);
+            alert('Copy failed. Your browser may not support copying HTML.');
+        }
+        });
+    });
+</script>
+
+<button id="copyPostContent" class="copy-button">Copy Article</button>
