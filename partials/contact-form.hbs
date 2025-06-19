@@ -91,7 +91,7 @@
         if (response.status === 200) {
         //alert('Thanks for reaching out! Your message was sent.');
         form.reset();  // 💥 Clears all fields
-        window.location.href = '/thanks';  // 🔥 Redirect to "Thank You" page
+        window.location.href = "{{@custom.contact_form_success_page}}";  // 🔥 Redirect to "Thank You" page
         } else {
         alert('Something went wrong — please try again later.');
         }

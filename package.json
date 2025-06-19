@@ -92,7 +92,12 @@
             "turnstile_sitekey": {
                 "type": "text",
                 "default": "<input Cloudflare Site Key here>",
-                "description": "Cloudflare Sitekey used for the turnstile captcha in the various forms." 
+                "description": "Cloudflare Sitekey used for the turnstile captcha in the various forms."
+            },
+            "contact_form_success_page": {
+                "type": "text",
+                "default": "/thanks",
+                "description": "Endpoint for successful submission using contact form."
             },
             "navigation_layout": {
                 "type": "select",
